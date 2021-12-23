@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+body {
+  background-color: #3b3b35;
+   -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently*/
+}
+
+::selection {
+  cursor: crosshair;
+  background: #9c386a;
+  color: white;
+}
+
+p.p-welc {
+  color: #fcfcc5;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 22px;
+}
+
+h1 {
+  color: #fcfcc5;
+  font-family: 'Anton';
+  text-align: center;
+}
+
+a {
+  color: #ffdeee;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #c286a4;
+}
