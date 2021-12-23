@@ -1,0 +1,24 @@
+{
+  "name": "yami-san",
+  "version": "0.10.0",
+  "description": "Le site officiel de Yami-San",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/glitch-hello-node"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
