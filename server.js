@@ -18,6 +18,7 @@ for (const file of commandSlFiles) {
 
 client.once('ready', () => {
 	console.log('Ready!');
+	client.user.setActivity(`?help | ${client.guilds.cache.size} Serveur`);
 });
 
 client.on('interactionCreate', async interaction => {
@@ -31,7 +32,7 @@ client.on('interactionCreate', async interaction => {
 		await command.execute(interaction);
 	} catch (error) {
 		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		await interaction.reply({ content: 'Une erreur est survenue lors de l\'utilisation de la commande!', ephemeral: true });
 	}
 });
 
