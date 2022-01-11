@@ -1,6 +1,6 @@
 {
   "name": "yami",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple bot, every simple",
   "main": "server.js",
   "scripts": {
@@ -11,13 +11,14 @@
     "@discordjs/builders": "^0.11.0",
     "@discordjs/rest": "^0.2.0-canary.0",
     "discord-api-types": "^0.26.1",
-    "fs": "^0.0.2"
+    "fs": "^0.0.2",
+    "moment": "^2.29.1"
   },
   "engines": {
     "node": "16.x"
   },
   "repository": {
-    "url": "https://github.com/Normioffi/yami-san/bot"
+    "url": "https://github.com/Normioffi/yami/bot"
   },
   "license": "MIT",
   "keywords": [
