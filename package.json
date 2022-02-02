@@ -12,7 +12,8 @@
     "@discordjs/rest": "^0.3.0",
     "discord-api-types": "^0.26.1",
     "fs": "^0.0.2",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "node-kitsu": "^1.1.1"
   },
   "engines": {
     "node": "16.x"
