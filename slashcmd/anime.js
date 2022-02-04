@@ -13,7 +13,7 @@ module.exports = {
     
     const anname = interaction.options.getString('nom');
     
-  // START searchAnime
+  // Début de la recherche de l'animé
     kitsu.searchAnime(anname, 0).then((results) => {
         let searchResult = results[0];
         if(!searchResult){
@@ -61,20 +61,20 @@ module.exports = {
           }                    
           var smallPoster = searchResult.attributes.posterImage.small;
 
-          //If the synopsis is longer then 700 characters cut it off and add "..."
-          //So the post doesn't become to long.
+		// Si le sypnosis fait plus que 700 caractère, il sera coupé et remplacer par "..."
           if(synopsis.length > 700){
               var synopsis = synopsis.substring(0, 700) + '...';
           }
-          //The Status returns lowercase "finished", This transforms it into "Finished"
+		
           var statusUpper = status.charAt(0).toUpperCase() + status.substr(1).toLowerCase();
 
+		// La création du résultat de la recherche et celui de l'intéraction
           const resultEmbed = new MessageEmbed()
                .setTitle(title)
                .setColor('#fcfcc5')
                .setDescription("Status: "+statusUpper)
                .setImage(smallPoster)
-               .setFooter("Source: Kitsu.io", "https://avatars.slack-edge.com/2017-07-16/213464927747_f1d4f9fb141ef6666442_512.png")
+               .setFooter("Source: Kitsu.io", "https://avatars.slack-edge.com/2017-07-16/213464927747_f1d4f9fb141ef6666442_512.png") // Le footer est optionnel
                .setURL("https://kitsu.io/anime/"+animeID)
                .addFields({name: "Synopsis:", value: `${synopsis}`},
                           {name: "Nombre d'épisode:", value: `${episodeCount}`, inline: true},
@@ -84,8 +84,8 @@ module.exports = {
                           {name: "Commencé le:", value: `${startDate}`, inline: true},
                           {name: "Fini le:", value: `${endDate}`, inline: true});
           interaction.reply({ embeds: [resultEmbed]});
-        } //END if !searchresults
-    });//END searchAnime
+        } // Fin  du résultat
+    });// Fin de la recherche de l'animé
     
-  } // END Reply
-}; // END Module
+  } // Fin de la réponse de l'intéraction
+}; // Fin du module.exports
