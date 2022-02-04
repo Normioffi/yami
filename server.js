@@ -1,8 +1,6 @@
 require('/app/deploy-commands.js');
 const fs = require('fs');
-
 const moment = require('moment');
-
 const { Client, Collection, Intents } = require('discord.js');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
