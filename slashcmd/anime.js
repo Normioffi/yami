@@ -1,17 +1,19 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const kitsu = require('node-kitsu');
+
+// Débt du module.exports
 module.exports = {
-  data: new SlashCommandBuilder()
+  data: new SlashCommandBuilder() // Création de la commande, le nom, la description de la commande et l'option de message de type STRING
     .setName("anime")
     .setDescription("Obtient des informations sur un animé")
     .addStringOption(option =>
 		option.setName('nom')
-			.setDescription('Le nom de l\'anime/manga')
+			.setDescription('Le nom de l\'animé')
 			.setRequired(true)),
   async execute(interaction) {
     
-    const anname = interaction.options.getString('nom');
+    const anname = interaction.options.getString('nom'); // Récupération du message venant de l'option 'nom" 
     
   // Début de la recherche de l'animé
     kitsu.searchAnime(anname, 0).then((results) => {
@@ -22,7 +24,7 @@ module.exports = {
           var animeID = searchResult.id;
           var titleEn = searchResult.attributes.titles.en;
           if(!titleEn){
-              titleEn = "Aucun titre anglais trouvé."
+              titleEn = "Aucun titre anglais trouvé." // Pourquoi pas français? Car kitsu.io n'a pas ce type de titre ou de sypnosis.
           }
           var titleJP = searchResult.attributes.titles.en_jp;
           if(!titleJP){
@@ -48,7 +50,7 @@ module.exports = {
           }
           var episodeLength = searchResult.attributes.episodeLength;
           if(!episodeLength){
-          	  episodeLength = "Inconnu";
+          	  episodeLength = "Inconnue"; // Inconnue si la durée n'est pas trouvée
           }
           var status = searchResult.attributes.status;
           var startDate = searchResult.attributes.startDate;
