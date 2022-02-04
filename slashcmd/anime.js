@@ -3,17 +3,18 @@ const { MessageEmbed } = require("discord.js");
 const kitsu = require('node-kitsu');
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("amg")
-    .setDescription("Obtient des informations sur un animé ou un manga")
-	.addStringOption(option =>
+    .setName("anime")
+    .setDescription("Obtient des informations sur un animé")
+    .addStringOption(option =>
 		option.setName('nom')
 			.setDescription('Le nom de l\'anime/manga')
 			.setRequired(true)),
   async execute(interaction) {
     
-    const amname = interaction.options.getString('nom');
+    const anname = interaction.options.getString('nom');
     
-	 kitsu.searchAnime(amname, 0).then((results) => {
+  // START searchAnime
+    kitsu.searchAnime(anname, 0).then((results) => {
         let searchResult = results[0];
         if(!searchResult){
           interaction.reply({ content: "Aucun résultat", ephemeral: true });
@@ -52,11 +53,11 @@ module.exports = {
           var status = searchResult.attributes.status;
           var startDate = searchResult.attributes.startDate;
           if(!startDate){
-              startDate = "Inconnu";
+              startDate = "Inconnue";
           }
           var endDate = searchResult.attributes.endDate;
           if(!endDate){
-              endDate = "Inconnu";
+              endDate = "Inconnue";
           }                    
           var smallPoster = searchResult.attributes.posterImage.small;
 
@@ -83,7 +84,8 @@ module.exports = {
                           {name: "Commencé le:", value: `${startDate}`, inline: true},
                           {name: "Fini le:", value: `${endDate}`, inline: true});
           interaction.reply({ embeds: [resultEmbed]});
-        }//END if !searchresults
-    });//END searchAnime  
+        } //END if !searchresults
+    });//END searchAnime
+    
   } // END Reply
 }; // END Module
