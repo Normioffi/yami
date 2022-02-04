@@ -92,7 +92,6 @@ module.exports = {
                interaction.reply({ embeds: [resultEmbed]});
         }//END if !searchresults
     });//END searchManga
-  //END if manga type
     
   } // END Reply
 }; // END Module
