@@ -32,7 +32,7 @@ const dateCreated = moment(interaction.guild.createdAt);
     
     await interaction.reply({ embeds: [serverEmbed] });
     
-    if (interaction.member.permissions.has("ADMINISTRATOR")) {
+   /* if (interaction.member.permissions.has("ADMINISTRATOR")) {
     let ephemeralEmbed = new MessageEmbed()
     .setColor('#fcfcc5')
     .setTitle("Information supplémentaire")
@@ -41,7 +41,7 @@ const dateCreated = moment(interaction.guild.createdAt);
     **Nombre d'invitation**: ${interaction.guild.invites.cache.size}`);
       
       await interaction.followUp({ embeds: [ephemeralEmbed], ephemeral: true})
-  }
+  } */
   
   },
 };
