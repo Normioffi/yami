@@ -7,7 +7,7 @@ module.exports = {
     .setDescription("Obtient des informations sur un manga")
     .addStringOption(option =>
 		option.setName('nom')
-			.setDescription('Le nom de l\'anime/manga')
+			.setDescription('Le nom du manga')
 			.setRequired(true)),
   async execute(interaction) {
     
