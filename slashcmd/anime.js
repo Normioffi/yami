@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
-const kitsu = require('node-kitsu');
+const kitsu = require('node-kitsu'); // Le pack de la source kitsu.io
 
 // Débt du module.exports
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
     kitsu.searchAnime(anname, 0).then((results) => {
         let searchResult = results[0];
         if(!searchResult){
-          interaction.reply({ content: "Aucun résultat", ephemeral: true });
+          interaction.reply({ content: "Aucun résultat", ephemeral: true }); // Si il y a aucun résultat.
         }else{
           var animeID = searchResult.id;
           var titleEn = searchResult.attributes.titles.en;
@@ -28,7 +28,7 @@ module.exports = {
           }
           var titleJP = searchResult.attributes.titles.en_jp;
           if(!titleJP){
-              titleJP = "Aucun titre japonais trouvé."
+              titleJP = "Aucun titre japonais trouvé." // Titre en romanji
           }
           var title = searchResult.attributes.canonicalTitle;
           if(!title){
@@ -61,7 +61,7 @@ module.exports = {
           if(!endDate){
               endDate = "Inconnue";
           }                    
-          var smallPoster = searchResult.attributes.posterImage.small;
+          var smallPoster = searchResult.attributes.posterImage.small; // L'image de l'animé
 
 		// Si le sypnosis fait plus que 700 caractère, il sera coupé et remplacer par "..."
           if(synopsis.length > 700){
