@@ -1,5 +1,3 @@
-# yami
-
 Bot discord.... Qui n'est pas publique pour l'instant, je manque de compétence pour le rendre publique.
 Mais je partage mon code quand même
 
@@ -25,3 +23,13 @@ Ensuite, crée un fichier `config.json` avec comme contenu:
 
 Pour `clientId` il faut mettre l'identifiant de votre bot
 Pour `guildId` il faut mettre l'identifiant de votre serveur de développement (de test)
+
+Ensuite, pour le jeton(token) de votre bot, il vous faut un autre module: `dotenv`
+
+Une fois le module installé, créé un fichier nommé `.env` avec comme contenu:
+```
+DISCORD_TOKEN=token-du-bot
+```
+
+
+C'est tout pour l'instant...
