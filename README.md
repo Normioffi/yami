@@ -9,27 +9,5 @@ Pour l'utiliser, vous aurez besoins d'installer ces modules:
 
 discord.js, @discordjs/builders, @discordjs/rest, discord-api-types/v9, fs, moment, node-kitsu
 
-
-# Prérequis
-Une fois installé, vous devez crée un fichier `config.json` avec comme contenu:
-
-```json
-{
-   "clientId": "",
-   "guildId": ""
-}
-```
-
-Pour `clientId` il faut mettre l'identifiant de votre bot
-Pour `guildId` il faut mettre l'identifiant de votre serveur de développement (de test)
-
-Ensuite, pour le jeton(token) de votre bot, il vous faut un autre module: `dotenv` (si vous utilisez glitch, il est déjà présent,
-
-Une fois le module installé, créé un fichier nommé `.env` avec comme contenu:
-```
-DISCORD_TOKEN=token-du-bot
-```
-
-
 Si vous avez un problème dans le code, contactez moi avec Issues
 C'est tout pour l'instant...
