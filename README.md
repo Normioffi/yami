@@ -32,4 +32,5 @@ DISCORD_TOKEN=token-du-bot
 ```
 
 
+Si vous avez un problème dans le code, contactez moi avec Issues
 C'est tout pour l'instant...
