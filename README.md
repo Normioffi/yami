@@ -7,7 +7,7 @@ Mais je partage mon code quand même
 # Modules requis
 Pour l'utiliser, vous aurez besoins d'installer ces modules:
 
-discord.js, @discordjs/builders, @discordjs/rest, discord-api-types/v9, moment, node-kitsu
+discord.js, @discordjs/builders, @discordjs/rest, discord-api-types/v9, fs, moment, node-kitsu
 
 
 # Prérequis
