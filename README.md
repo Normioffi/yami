@@ -1,18 +1,17 @@
+# Explication
+
+
 Bot discord.... Qui n'est pas publique pour l'instant, je manque de compétence pour le rendre publique.
 Mais je partage mon code quand même
 
-
+# Modules requis
 Pour l'utiliser, vous aurez besoins d'installer ces modules:
 
-discord.js
-@discordjs/builders
-@discordjs/rest
-discord-api-type/v9
-moment
-node-kitsu
+discord.js, @discordjs/builders, @discordjs/rest, discord-api-type/v9, moment, node-kitsu
 
 
-Ensuite, crée un fichier `config.json` avec comme contenu:
+# Prérequis
+Une fois installé, vous devez crée un fichier `config.json` avec comme contenu:
 
 ```json
 {
