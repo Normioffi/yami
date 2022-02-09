@@ -16,8 +16,7 @@ for (const file of commandSlFiles) {
 
 client.once('ready', () => { // Quand le bot est prêt, il exécute le code si-dessous
 	console.log('Bot prêt!');
-  client.user.setActivity(`?help | ${client.guilds.cache.size} Serveurs`); // Ajout du status dès que le bot est prêt (Modifiable)
-  
+	client.user.setPresence({ activities: [{ name: `?help | ${client.guilds.cache.size} Serveurs`, type: "WATCHING" }], status: 'idle' }); // Ajout du status dès que le bot est prêt (Modifiable)
 });
 
 client.on('interactionCreate', async interaction => { // Quand une interaction est créé, il exécute le code si-dessous
