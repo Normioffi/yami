@@ -2,9 +2,9 @@
   "name": "yami",
   "version": "0.0.3",
   "description": "Simple bot, every simple",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "discord.js": "^13.6.0",
