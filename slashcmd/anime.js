@@ -28,7 +28,7 @@ module.exports = {
           }
           var titleJP = searchResult.attributes.titles.en_jp;
           if(!titleJP){
-              titleJP = "Aucun titre japonais trouvé." // Titre en romanji
+              titleJP = "Aucun titre romanji trouvé." // Titre en romanji
           }
           var title = searchResult.attributes.canonicalTitle;
           if(!title){
@@ -55,11 +55,11 @@ module.exports = {
           var status = searchResult.attributes.status;
           var startDate = searchResult.attributes.startDate;
           if(!startDate){
-              startDate = "Inconnue";
+              startDate = "Date inconnue";
           }
           var endDate = searchResult.attributes.endDate;
           if(!endDate){
-              endDate = "Inconnue";
+              endDate = "Date inconnue";
           }                    
           var smallPoster = searchResult.attributes.posterImage.small; // L'image de l'animé
 
@@ -76,13 +76,13 @@ module.exports = {
                .setColor('#fcfcc5')
                .setDescription("Status: "+statusUpper)
                .setImage(smallPoster)
-               .setFooter("Source: Kitsu.io", "https://avatars.slack-edge.com/2017-07-16/213464927747_f1d4f9fb141ef6666442_512.png") // Le footer est optionnel
+               .setFooter({ text: "Source: Kitsu.io", iconURL: "https://avatars.slack-edge.com/2017-07-16/213464927747_f1d4f9fb141ef6666442_512.png"}) // Le footer est optionnel
                .setURL("https://kitsu.io/anime/"+animeID)
                .addFields({name: "Synopsis:", value: `${synopsis}`},
                           {name: "Nombre d'épisode:", value: `${episodeCount}`, inline: true},
                           {name: "Temps des épisodes:", value: `${episodeLength} Minutes`, inline: true},
                           {name: "Anglais:", value: `${titleEn}`, inline: true},
-                          {name: "Japonais", value: `${titleJP}`, inline: true},
+                          {name: "Japonais (Romanji)", value: `${titleJP}`, inline: true},
                           {name: "Commencé le:", value: `${startDate}`, inline: true},
                           {name: "Fini le:", value: `${endDate}`, inline: true});
           interaction.reply({ embeds: [resultEmbed]});
