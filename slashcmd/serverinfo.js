@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder,  SlashCommandBuilder } = require("discord.js");
 const moment = require("moment");
 module.exports = {
   data: new SlashCommandBuilder()
@@ -8,7 +7,7 @@ module.exports = {
   async execute(interaction) {
 
 const dateCreated = moment(interaction.guild.createdAt);
-    let serverEmbed = new MessageEmbed()
+    let serverEmbed = new EmbedBuilder()
     .setColor('#fcfcc5')
     .setThumbnail(`${interaction.guild.iconURL() || "https://cdn.glitch.global/6b088ee7-7faa-4199-9d3f-68a689f34c09/discord-crashing~2.jpg"}`)
     .setTitle(interaction.guild.name)
