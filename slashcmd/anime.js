@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder, SlashCommandBuilder } = require("discord.js");
 const kitsu = require('node-kitsu'); // Le pack de la source kitsu.io
 
 // Débt du module.exports
@@ -23,12 +22,16 @@ module.exports = {
         }else{
           var animeID = searchResult.id;
           var titleEn = searchResult.attributes.titles.en;
-          if(!titleEn){
-              titleEn = "Aucun titre anglais trouvé." // Pourquoi pas français? Car kitsu.io n'a pas ce type de titre ou de sypnosis.
+          if(!titleEn){ // Si il n'y a aucun titre anglais trouvé
+              titleEn = "Aucun titre anglais trouvé.";
           }
           var titleJP = searchResult.attributes.titles.en_jp;
-          if(!titleJP){
-              titleJP = "Aucun titre romanji trouvé." // Titre en romanji
+          if(!titleJP){ // Si il n'y a aucun titre en japonais trouvé
+              titleJP = "Aucun titre japonais trouvé.";
+          }
+          var titleRoJP = searchResult.attributes.titles.ja_jp;
+          if(!titleRoJP){ // Si il n'y a aucun titre en japonais (Rōmaji)
+              titleRoJP = "Aucun titre japonais Rōmaji trouvé.";
           }
           var title = searchResult.attributes.canonicalTitle;
           if(!title){
@@ -36,29 +39,31 @@ module.exports = {
                 title = titleEn;
             }else if(!titleJP){
                 title = titleJP;
-            }else{
+            }else if (!titleRoJP){
+                title = titleRoJP
+            }else{ // Si il n'y a aucun titre de tout type
                 title = "Aucun titre trouvé.";
             }
           }
           var synopsis = searchResult.attributes.synopsis;
-          if(!synopsis){
+          if(!synopsis){ // Si il n'y a aucun sypnosis
               synopsis = "Aucun sypnosis trouvé.";
           }
           var episodeCount = searchResult.attributes.episodeCount;
-          if(!episodeCount){
+          if(!episodeCount){ // Si il n'y a aucun épisode
               episodeCount = "Inconnu";
           }
           var episodeLength = searchResult.attributes.episodeLength;
-          if(!episodeLength){
-          	  episodeLength = "Inconnue"; // Inconnue si la durée n'est pas trouvée
+          if(!episodeLength){ // Si il n'y a aucun temps d'épisode
+          	  episodeLength = "Inconnue";
           }
           var status = searchResult.attributes.status;
           var startDate = searchResult.attributes.startDate;
-          if(!startDate){
+          if(!startDate){ // Si il n'y a aucune date de début
               startDate = "Date inconnue";
           }
           var endDate = searchResult.attributes.endDate;
-          if(!endDate){
+          if(!endDate){ // Si il n'y a aucune date de fin
               endDate = "Date inconnue";
           }                    
           var smallPoster = searchResult.attributes.posterImage.small; // L'image de l'animé
@@ -71,7 +76,7 @@ module.exports = {
           var statusUpper = status.charAt(0).toUpperCase() + status.substr(1).toLowerCase();
 
 		// La création du résultat de la recherche et celui de l'intéraction
-          const resultEmbed = new MessageEmbed()
+          let resultEmbed = new EmbedBuilder()
                .setTitle(title)
                .setColor('#fcfcc5')
                .setDescription("Status: "+statusUpper)
@@ -82,7 +87,8 @@ module.exports = {
                           {name: "Nombre d'épisode:", value: `${episodeCount}`, inline: true},
                           {name: "Temps des épisodes:", value: `${episodeLength} Minutes`, inline: true},
                           {name: "Anglais:", value: `${titleEn}`, inline: true},
-                          {name: "Japonais (Romanji)", value: `${titleJP}`, inline: true},
+                          {name: "Japonais", value: `${titleJP}`, inline: true},
+                          {name: "Japonais (Rōmaji)", value: `${titleRoJP}`, inline: true},
                           {name: "Commencé le:", value: `${startDate}`, inline: true},
                           {name: "Fini le:", value: `${endDate}`, inline: true});
           interaction.reply({ embeds: [resultEmbed]});
